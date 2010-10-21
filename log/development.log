@@ -1,0 +1,72 @@
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (6.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (5.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+Migrating to CreatePlaylists (20101015105335)
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "playlists" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "day" integer, "creator" varchar(255), "mood" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101015105335')
+Migrating to CreateSongs (20101015110813)
+  [1m[36mSQL (0.8ms)[0m  [1mCREATE TABLE "songs" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "playlist_id" integer, "artist" varchar(255), "title" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101015110813')
+Migrating to AddDescriptionPlaylist (20101021192936)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "playlists" ADD "description" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101021192936')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("playlists")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("songs")[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 21 21:36:01 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+Rendered playlists/index.html.haml (5.7ms)
+Completed 200 OK in 151ms (Views: 11.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/new" for 127.0.0.1 at Thu Oct 21 21:36:07 +0200 2010
+  Processing by PlaylistsController#new as HTML
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70358810245940_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:1)
+Rendered playlists/new.html.haml (49.9ms)
+Completed 200 OK in 65ms (Views: 56.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/playlists" for 127.0.0.1 at Thu Oct 21 21:36:18 +0200 2010
+  Processing by PlaylistsController#create as HTML
+  Parameters: {"commit"=>"dodaj", "authenticity_token"=>"zqgSxlmEx5NhrORMWzG/81ZUdvvZ4AuYgljuoOZQuYk=", "utf8"=>"\342\234\223", "playlist"=>{"mood"=>"Smutek", "creator"=>"Ja", "day"=>"1"}}
+Redirected to http://localhost:3000/
+Completed 302 Found in 97ms
+
+
+Started GET "/" for 127.0.0.1 at Thu Oct 21 21:36:18 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.3ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+Rendered playlists/index.html.haml (5.5ms)
+Completed 200 OK in 21ms (Views: 10.7ms | ActiveRecord: 0.3ms)
