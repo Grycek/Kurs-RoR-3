@@ -1,0 +1,24 @@
+%h1 Playlist
+%h2
+  %p
+    Autor: 
+    =@playlist.creator
+  %p
+    Dzień:
+    =@playlist.day
+  %p
+    Nastrój:
+    =@playlist.mood
+%hr
+%h3 Utwory:    
+- @playlist.songs.each_with_index do |song, index|
+  %p
+    %b
+      =index+1
+      \.
+      =song.artist
+      \ - 
+      =song.title
+%br/      
+%p= link_to "Dodaj utwór", new_playlist_song_path(@playlist)
+%p= link_to "Powrót", playlists_path

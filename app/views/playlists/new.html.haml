@@ -1,0 +1,13 @@
+- form_for @playlist do |f|
+  %p
+    Autor:
+    = f.text_field :creator
+  %p
+    Dzień:
+    =f.select(:day, options_for_select(1..100) )
+  %p
+    Nastrój
+    = f.text_field :mood
+  %p=f.submit "dodaj"
+  
+%p= link_to "Powrót", playlists_path

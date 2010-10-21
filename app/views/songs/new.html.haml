@@ -1,0 +1,10 @@
+- form_for [@song.playlist, @song] do |f|
+  %p
+    Artysta:
+    = f.text_field :artist
+  %p
+    Tytuł:
+    = f.text_field :title
+  %p=f.submit "dodaj"
+  
+%p= link_to "Powrót", playlist_path(@song.playlist)

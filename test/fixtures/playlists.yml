@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  day: 1
+  creator: MyString
+  mood: MyString
+
+two:
+  day: 1
+  creator: MyString
+  mood: MyString
