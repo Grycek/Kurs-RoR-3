@@ -2494,3 +2494,31 @@ Started GET "/" for 127.0.0.1 at Fri Oct 22 18:40:25 +0200 2010
   [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 4)
 Rendered playlists/index.html.haml (31.0ms)
 Completed 200 OK in 51ms (Views: 38.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:42:35 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.5ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 4)[0m
+Rendered playlists/index.html.haml (31.4ms)
+Completed 200 OK in 50ms (Views: 39.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/playlists/4" for 127.0.0.1 at Fri Oct 22 18:42:39 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 4) LIMIT 1[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 4)
+Rendered playlists/show.html.haml (29.6ms)
+Completed 200 OK in 52ms (Views: 38.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists" for 127.0.0.1 at Fri Oct 22 18:42:40 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.5ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 4)[0m
+Rendered playlists/index.html.haml (37.9ms)
+Completed 200 OK in 71ms (Views: 51.8ms | ActiveRecord: 1.1ms)
