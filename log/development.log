@@ -2445,3 +2445,52 @@ Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:17:05 +0200 2010
   [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
 Rendered playlists/show.html.haml (30.8ms)
 Completed 200 OK in 53ms (Views: 39.6ms | ActiveRecord: 0.9ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" LIMIT 1
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "songs" ("artist", "created_at", "playlist_id", "title", "updated_at") VALUES ('U2', '2010-10-22 16:39:19.454142', 2, 'Bad', '2010-10-22 16:39:19.454142')
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:39:29 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/index.html.haml (26.2ms)
+Completed 200 OK in 46ms (Views: 34.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/playlists/new" for 127.0.0.1 at Fri Oct 22 18:40:13 +0200 2010
+  Processing by PlaylistsController#new as HTML
+Rendered playlists/_form.html.haml (17.1ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70256221352620_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:2)
+Rendered playlists/new.html.haml (29.0ms)
+Completed 200 OK in 48ms (Views: 38.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/playlists" for 127.0.0.1 at Fri Oct 22 18:40:25 +0200 2010
+  Processing by PlaylistsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "authenticity_token"=>"Eg98b9a9lqctjqrzpwKHXZtK9ftF4esPQeQGmjW2GoQ=", "utf8"=>"\342\234\223", "playlist"=>{"mood"=>"Smutny", "creator"=>"Adam", "day"=>"12", "description"=>"Jaki\305\233"}}
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "playlists" ("created_at", "creator", "day", "description", "mood", "updated_at") VALUES ('2010-10-22 16:40:25.111269', 'Adam', 12, 'Jakiś', 'Smutny', '2010-10-22 16:40:25.111269')
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "songs" ("artist", "created_at", "playlist_id", "title", "updated_at") VALUES ('Automatycznie dodawany utwór', '2010-10-22 16:40:25.198685', 4, 'Intro', '2010-10-22 16:40:25.198685')[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 111ms
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:40:25 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 4)
+Rendered playlists/index.html.haml (31.0ms)
+Completed 200 OK in 51ms (Views: 38.8ms | ActiveRecord: 1.0ms)
