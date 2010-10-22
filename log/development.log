@@ -2257,3 +2257,191 @@ Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 17:38:25 +0200 2010
   [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)
 Rendered playlists/show.html.haml (32.3ms)
 Completed 200 OK in 130ms (Views: 41.1ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:13:52 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/show.html.haml (30.7ms)
+Completed 200 OK in 53ms (Views: 39.5ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/2/edit" for 127.0.0.1 at Fri Oct 22 18:13:54 +0200 2010
+  Processing by PlaylistsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_edit_html_haml___377948001_70256218496800_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/edit.html.haml:2)
+Rendered playlists/edit.html.haml (10.5ms)
+Completed 200 OK in 33ms (Views: 19.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/playlists/2/edit" for 127.0.0.1 at Fri Oct 22 18:14:02 +0200 2010
+  Processing by PlaylistsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1[0m
+Rendered playlists/edit.html.haml (12.2ms)
+Completed   in 34ms
+
+ActionView::Template::Error (Missing partial playlists/form with {:formats=>[:html], :handlers=>[:rhtml, :haml, :rxml, :erb, :rjs, :builder], :locale=>[:en, :en]} in view paths "/home/adam/Studia/VII semestr/RoR/Task3/app/views", "/home/adam/Studia/VII semestr/RoR/Task3/vendor/plugins/dynamic_form/app/views"):
+    1: %hr
+    2: - form_for @playlist do |f|
+    3:   = render :partial => 'form', :locals => {:f => f}
+    4:   %p=f.submit "dodaj"
+    5:   
+    6: %p= link_to "Powrót", playlists_path
+  app/views/playlists/edit.html.haml:3
+  app/views/playlists/edit.html.haml:2:in `_app_views_playlists_edit_html_haml___377948001_70256221195800_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (7.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (13.5ms)
+
+
+Started GET "/playlists/2/edit" for 127.0.0.1 at Fri Oct 22 18:14:30 +0200 2010
+  Processing by PlaylistsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+Rendered playlists/_form.html.haml (86.2ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_edit_html_haml___377948001_70256219069960_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/edit.html.haml:2)
+Rendered playlists/edit.html.haml (130.2ms)
+Completed 200 OK in 152ms (Views: 139.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:14:37 +0200 2010
+  Processing by PlaylistsController#update as HTML
+  Parameters: {"commit"=>"dodaj", "authenticity_token"=>"CFXX5N0HzN4yD5urw8hgciMYyv6a7H2ysE/j6Zh5XuA=", "utf8"=>"\342\234\223", "id"=>"2", "playlist"=>{"mood"=>":)", "creator"=>"Ja", "day"=>"1", "description"=>".."}}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "playlists" SET "description" = '..', "updated_at" = '2010-10-22 16:14:37.310084' WHERE ("playlists"."id" = 2)
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 26ms
+
+
+Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:14:37 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/show.html.haml (28.8ms)
+Completed 200 OK in 50ms (Views: 37.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/playlists" for 127.0.0.1 at Fri Oct 22 18:15:12 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/index.html.haml (30.4ms)
+Completed 200 OK in 140ms (Views: 39.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/playlists/new" for 127.0.0.1 at Fri Oct 22 18:15:14 +0200 2010
+  Processing by PlaylistsController#new as HTML
+Rendered playlists/_form.html.haml (15.9ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70256220374760_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:2)
+Rendered playlists/new.html.haml (27.9ms)
+Completed 200 OK in 46ms (Views: 36.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/playlists" for 127.0.0.1 at Fri Oct 22 18:15:16 +0200 2010
+  Processing by PlaylistsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "authenticity_token"=>"CFXX5N0HzN4yD5urw8hgciMYyv6a7H2ysE/j6Zh5XuA=", "utf8"=>"\342\234\223", "playlist"=>{"mood"=>"", "creator"=>"", "day"=>"1", "description"=>""}}
+Rendered playlists/_form.html.haml (17.5ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70256220941840_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:2)
+Rendered playlists/new.html.haml (24.8ms)
+Completed 200 OK in 53ms (Views: 33.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/playlists" for 127.0.0.1 at Fri Oct 22 18:15:32 +0200 2010
+  Processing by PlaylistsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "authenticity_token"=>"CFXX5N0HzN4yD5urw8hgciMYyv6a7H2ysE/j6Zh5XuA=", "utf8"=>"\342\234\223", "playlist"=>{"mood"=>"", "creator"=>"", "day"=>"1", "description"=>"..."}}
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "playlists" ("created_at", "creator", "day", "description", "mood", "updated_at") VALUES ('2010-10-22 16:15:32.755103', '', 1, '...', '', '2010-10-22 16:15:32.755103')
+Redirected to http://localhost:3000/
+Completed 302 Found in 46ms
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:15:32 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.5ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 3)[0m
+Rendered playlists/index.html.haml (33.0ms)
+Completed 200 OK in 55ms (Views: 41.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/playlists/3" for 127.0.0.1 at Fri Oct 22 18:15:35 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 3) LIMIT 1[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 3)
+Rendered playlists/show.html.haml (24.5ms)
+Completed 200 OK in 46ms (Views: 33.1ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/playlists/3" for 127.0.0.1 at Fri Oct 22 18:15:38 +0200 2010
+  Processing by PlaylistsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"CFXX5N0HzN4yD5urw8hgciMYyv6a7H2ysE/j6Zh5XuA=", "id"=>"3"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 3) LIMIT 1[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 3)
+  [1m[36mSQL (0.2ms)[0m  [1mDELETE FROM "playlists" WHERE ("playlists"."id" = 3)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 117ms
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:15:38 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.6ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/index.html.haml (28.0ms)
+Completed 200 OK in 50ms (Views: 37.2ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 18:17:00 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/index.html.haml (28.6ms)
+Completed 200 OK in 50ms (Views: 37.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:17:01 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)
+Rendered playlists/show.html.haml (30.9ms)
+Completed 200 OK in 53ms (Views: 39.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/2/songs/new" for 127.0.0.1 at Fri Oct 22 18:17:02 +0200 2010
+  Processing by SongsController#new as HTML
+  Parameters: {"playlist_id"=>"2"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+Rendered songs/_form.html.haml (2.4ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_songs_new_html_haml___1139554821_70256219403660_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/songs/new.html.haml:1)
+Rendered songs/new.html.haml (13.6ms)
+Completed 200 OK in 53ms (Views: 22.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/playlists/2/songs" for 127.0.0.1 at Fri Oct 22 18:17:05 +0200 2010
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "playlist_id"=>"2", "authenticity_token"=>"CFXX5N0HzN4yD5urw8hgciMYyv6a7H2ysE/j6Zh5XuA=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"", "title"=>""}}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "songs" ("artist", "created_at", "playlist_id", "title", "updated_at") VALUES ('', '2010-10-22 16:17:05.433911', 2, '', '2010-10-22 16:17:05.433911')
+Redirected to http://localhost:3000/playlists/2
+Completed 302 Found in 117ms
+
+
+Started GET "/playlists/2" for 127.0.0.1 at Fri Oct 22 18:17:05 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 2) LIMIT 1
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 2)[0m
+Rendered playlists/show.html.haml (30.8ms)
+Completed 200 OK in 53ms (Views: 39.6ms | ActiveRecord: 0.9ms)

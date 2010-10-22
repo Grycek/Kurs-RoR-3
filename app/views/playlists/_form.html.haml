@@ -1,0 +1,15 @@
+%h1 Pole opis musi być niepuste.
+= f.error_messages
+%hr
+%p
+  Autor:
+  = f.text_field :creator
+%p
+  Dzień:
+  =f.select(:day, options_for_select(1..100) )
+%p
+  Nastrój:
+  = f.text_field :mood
+%p
+  Opis:
+  = f.text_field :description
