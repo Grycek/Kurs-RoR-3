@@ -3,16 +3,18 @@ Task2::Application.routes.draw do
   get "playlists/show"
   get "playlists/new"
   get "songs/new"
+  
   root :to => "playlists#index"
   resources :playlists do
-       member do
-         put 'edit'
-         delete 'destroy'
-       end
     resources :songs
   end
+  
   resources :songs
-  resources :playlists
+  #resources :playlists
+  
+  namespace :admin do
+    resources :playlists
+  end
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

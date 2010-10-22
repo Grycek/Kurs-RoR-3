@@ -1,0 +1,6 @@
+%h1 Hallo
+
+- @playlists.each do |playlist|
+  = playlist.creator + ' - ' + playlist.mood + ' : ' + playlist.day.to_s
+  = button_to "Usuń", playlists_path, :method=>:delete
+  
