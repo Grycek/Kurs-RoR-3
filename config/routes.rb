@@ -5,6 +5,10 @@ Task2::Application.routes.draw do
   get "songs/new"
   root :to => "playlists#index"
   resources :playlists do
+       member do
+         put 'edit'
+         delete 'destroy'
+       end
     resources :songs
   end
   resources :songs

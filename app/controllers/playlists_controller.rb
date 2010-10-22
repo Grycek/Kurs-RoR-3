@@ -21,6 +21,28 @@ class PlaylistsController < ApplicationController
           render :action => :new
       end
   end
+  
+  
+  def edit
+      @playlist = Playlist.find(params[:id])
+  end
+  
+  
+  def update
+      @playlist = Playlist.find(params[:id])
+      if @playlist.update_attributes(params[:playlist])
+          redirect_to @playlist
+      else
+          render :action => :new
+      end
+  end
+
+  
+  def destroy
+      @playlist = Playlist.find(params[:id])
+      @playlist.destroy
+      redirect_to root_path
+  end
 
 
 end
