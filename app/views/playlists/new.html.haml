@@ -1,4 +1,8 @@
+%h1 Pole opis musi być niepuste.
+%hr
 - form_for @playlist do |f|
+  = f.error_messages
+  %hr
   %p
     Autor:
     = f.text_field :creator
@@ -6,8 +10,11 @@
     Dzień:
     =f.select(:day, options_for_select(1..100) )
   %p
-    Nastrój
+    Nastrój:
     = f.text_field :mood
+  %p
+    Opis:
+    = f.text_field :description
   %p=f.submit "dodaj"
   
 %p= link_to "Powrót", playlists_path

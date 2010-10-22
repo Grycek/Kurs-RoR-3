@@ -14,8 +14,12 @@ class PlaylistsController < ApplicationController
 
   
   def create
-      Playlist.create(params[:playlist])
-      redirect_to root_path
+      @playlist = Playlist.create(params[:playlist])
+      if @playlist.valid?
+          redirect_to root_path
+      else
+          render :action => :new
+      end
   end
 
 
