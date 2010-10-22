@@ -4248,3 +4248,55 @@ Started GET "/admin/playlists/" for 127.0.0.1 at Fri Oct 22 20:30:22 +0200 2010
   [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
 Rendered admin/playlists/index.html.haml (8.5ms)
 Completed 200 OK in 32ms (Views: 19.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 20:31:27 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)[0m
+Rendered playlists/index.html.haml (30.2ms)
+Completed 200 OK in 50ms (Views: 38.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/6" for 127.0.0.1 at Fri Oct 22 20:31:29 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPlaylist Load (0.8ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+Rendered playlists/show.html.haml (105.6ms)
+Completed 200 OK in 126ms (Views: 114.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/playlists/6" for 127.0.0.1 at Fri Oct 22 20:32:06 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)[0m
+Rendered playlists/show.html.haml (26.8ms)
+Completed 200 OK in 49ms (Views: 35.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists/6" for 127.0.0.1 at Fri Oct 22 20:32:55 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+Rendered playlists/show.html.haml (26.4ms)
+Completed 200 OK in 47ms (Views: 34.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Oct 22 20:35:55 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.2ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)
+Rendered playlists/index.html.haml (35.9ms)
+Completed 200 OK in 146ms (Views: 43.5ms | ActiveRecord: 1.2ms)
