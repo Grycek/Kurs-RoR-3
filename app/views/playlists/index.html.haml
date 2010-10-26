@@ -10,7 +10,7 @@
   %p
     %b Nastrój:
     =playlist.mood
-  =select_tag(:song_id, options_for_select( playlist.songs.map {|song| [song.artist + ' - ' + song.title, song.id]} ))
+  =select_tag(:song_id, options_for_select( playlist.songs.map {|song| [song.artist + ' - ' + song.title, song.id]} ), {:required => true})
   %p
     =link_to "wiecej", playlist
   %hr

@@ -4300,3 +4300,152 @@ Started GET "/" for 127.0.0.1 at Fri Oct 22 20:35:55 +0200 2010
   [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)
 Rendered playlists/index.html.haml (35.9ms)
 Completed 200 OK in 146ms (Views: 43.5ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Oct 26 20:32:53 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mSQL (1.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (66.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)[0m
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_index_html_haml__1926493087_70080704112080_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/index.html.haml:13)
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_index_html_haml__1926493087_70080704112080_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/index.html.haml:13)
+Rendered playlists/index.html.haml (161.4ms)
+Completed 200 OK in 299ms (Views: 115.6ms | ActiveRecord: 68.9ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Oct 26 20:34:24 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.3ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+Rendered playlists/index.html.haml (27.5ms)
+Completed   in 46ms
+
+ActionView::Template::Error (undefined method `song_id' for #<Playlist:0x7f79df33acd8>):
+    11:     %b Nastrój:
+    12:     =playlist.mood
+    13:   - form_for playlist do |f|
+    14:     = f.select :song_id, options_for_select( playlist.songs.map {|song| [song.artist + ' - ' + song.title, song.id]} ), :required => true
+    15:   %p
+    16:     =link_to "wiecej", playlist
+    17:   %hr
+  app/views/playlists/index.html.haml:14
+  app/views/playlists/index.html.haml:13:in `_app_views_playlists_index_html_haml__1926493087_70080706217800_0'
+  app/views/playlists/index.html.haml:3:in `each'
+  app/views/playlists/index.html.haml:3:in `_app_views_playlists_index_html_haml__1926493087_70080706217800_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (3.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (23.4ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Oct 26 20:34:55 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.5ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+Rendered playlists/index.html.haml (97.3ms)
+Completed   in 118ms
+
+ActionView::Template::Error (undefined method `playlist_id' for #<Playlist:0x7f79deea0ec0>):
+    11:     %b Nastrój:
+    12:     =playlist.mood
+    13:   - form_for playlist do |f|
+    14:     = f.select :playlist_id, options_for_select( playlist.songs.map {|song| [song.artist + ' - ' + song.title, song.id]} ), :required => true
+    15:   %p
+    16:     =link_to "wiecej", playlist
+    17:   %hr
+  app/views/playlists/index.html.haml:14
+  app/views/playlists/index.html.haml:13:in `_app_views_playlists_index_html_haml__1926493087_70080703785920_0'
+  app/views/playlists/index.html.haml:3:in `each'
+  app/views/playlists/index.html.haml:3:in `_app_views_playlists_index_html_haml__1926493087_70080703785920_0'
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (8.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (16.6ms)
+
+
+Started GET "/" for 127.0.0.1 at Tue Oct 26 20:39:52 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)[0m
+Rendered playlists/index.html.haml (31.1ms)
+Completed 200 OK in 51ms (Views: 39.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/playlists/6" for 127.0.0.1 at Tue Oct 26 20:39:59 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mPlaylist Load (0.5ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mPlaylist Load (1.4ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1[0m
+  [1m[35mSong Load (0.3ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+Rendered playlists/show.html.haml (30.3ms)
+Completed 200 OK in 129ms (Views: 41.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/playlists/6/songs/new" for 127.0.0.1 at Tue Oct 26 20:40:01 +0200 2010
+  Processing by SongsController#new as HTML
+  Parameters: {"playlist_id"=>"6"}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1
+Rendered songs/_form.html.haml (6.0ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_songs_new_html_haml___1139554821_70080705003860_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/songs/new.html.haml:1)
+Rendered songs/new.html.haml (31.5ms)
+Completed 200 OK in 83ms (Views: 52.9ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/playlists/6/songs" for 127.0.0.1 at Tue Oct 26 20:40:04 +0200 2010
+  Processing by SongsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "playlist_id"=>"6", "authenticity_token"=>"ZFiZ7Dqlzb8zmmjwaVgFRoLFbPBUhw9t28z7KImk8l8=", "utf8"=>"\342\234\223", "song"=>{"artist"=>"", "title"=>""}}
+  [1m[36mPlaylist Load (0.2ms)[0m  [1mSELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (15.7ms)[0m  INSERT INTO "songs" ("artist", "created_at", "playlist_id", "title", "updated_at") VALUES ('', '2010-10-26 18:40:04.178114', 6, '', '2010-10-26 18:40:04.178114')
+Redirected to http://localhost:3000/playlists/6
+Completed 302 Found in 174ms
+
+
+Started GET "/playlists/6" for 127.0.0.1 at Tue Oct 26 20:40:04 +0200 2010
+  Processing by PlaylistsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists" WHERE ("playlists"."id" = 6) LIMIT 1
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)[0m
+Rendered playlists/show.html.haml (26.8ms)
+Completed 200 OK in 47ms (Views: 34.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/playlists" for 127.0.0.1 at Tue Oct 26 20:40:08 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[35mPlaylist Load (0.4ms)[0m  SELECT "playlists".* FROM "playlists"
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)[0m
+  [1m[35mSong Load (0.2ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)
+Rendered playlists/index.html.haml (31.5ms)
+Completed 200 OK in 52ms (Views: 39.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/playlists/new" for 127.0.0.1 at Tue Oct 26 20:40:10 +0200 2010
+  Processing by PlaylistsController#new as HTML
+Rendered playlists/_form.html.haml (163.5ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70080706306760_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:2)
+Rendered playlists/new.html.haml (176.3ms)
+Completed 200 OK in 197ms (Views: 187.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/playlists" for 127.0.0.1 at Tue Oct 26 20:40:12 +0200 2010
+  Processing by PlaylistsController#create as HTML
+  Parameters: {"commit"=>"Dodaj", "authenticity_token"=>"ZFiZ7Dqlzb8zmmjwaVgFRoLFbPBUhw9t28z7KImk8l8=", "utf8"=>"\342\234\223", "playlist"=>{"mood"=>"", "creator"=>"", "day"=>"1", "description"=>""}}
+Rendered playlists/_form.html.haml (20.1ms)
+DEPRECATION WARNING: - style block helpers are deprecated. Please use =. (called from _app_views_playlists_new_html_haml__703950681_70080707163000_0 at /home/adam/Studia/VII semestr/RoR/Task3/app/views/playlists/new.html.haml:2)
+Rendered playlists/new.html.haml (27.7ms)
+Completed 200 OK in 123ms (Views: 36.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/playlists" for 127.0.0.1 at Tue Oct 26 20:40:15 +0200 2010
+  Processing by PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+  [1m[35mSong Load (0.4ms)[0m  SELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 6)
+  [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)[0m
+Rendered playlists/index.html.haml (31.0ms)
+Completed 200 OK in 52ms (Views: 39.2ms | ActiveRecord: 1.1ms)
