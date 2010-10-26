@@ -13,6 +13,7 @@ Task2::Application.routes.draw do
   #resources :playlists
   
   namespace :admin do
+    root :to => "playlists#index"
     resources :playlists
   end
   

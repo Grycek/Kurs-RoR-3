@@ -4449,3 +4449,29 @@ Started GET "/playlists" for 127.0.0.1 at Tue Oct 26 20:40:15 +0200 2010
   [1m[36mSong Load (0.3ms)[0m  [1mSELECT "songs".* FROM "songs" WHERE ("songs".playlist_id = 8)[0m
 Rendered playlists/index.html.haml (31.0ms)
 Completed 200 OK in 52ms (Views: 39.2ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/playlists/admin/playlists/" for 127.0.0.1 at Tue Oct 26 20:45:11 +0200 2010
+
+ActionController::RoutingError (No route matches "/playlists/admin/playlists"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (2.3ms)
+
+
+Started GET "/admin/playlists/" for 127.0.0.1 at Tue Oct 26 20:45:18 +0200 2010
+  Processing by Admin::PlaylistsController#index as HTML
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mPlaylist Load (0.2ms)[0m  SELECT "playlists".* FROM "playlists"
+Rendered admin/playlists/index.html.haml (9.3ms)
+Completed 200 OK in 72ms (Views: 20.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/" for 127.0.0.1 at Tue Oct 26 20:45:21 +0200 2010
+  Processing by Admin::PlaylistsController#index as HTML
+  [1m[36mPlaylist Load (0.4ms)[0m  [1mSELECT "playlists".* FROM "playlists"[0m
+Rendered admin/playlists/index.html.haml (9.3ms)
+Completed 200 OK in 34ms (Views: 21.9ms | ActiveRecord: 0.4ms)
